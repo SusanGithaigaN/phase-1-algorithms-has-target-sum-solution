@@ -1,18 +1,41 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
-}
+  // SOLUTION 1: USING A FOR LOOP FOR AN ARRAY WITH MULTIPLE ELEMENTS.
+  function hasTargetSum(array, target) {
+  // Iterate through each number in the array
+  for(let i = 0; i < array.length; i++){
+    // Identify a complement that adds up to the target.
+    // n steps
+    const myResult =  target - array[i]
+    for (let j =i+1; j < array.length; j++){
+      // Check if any number in the array is our complement.
+      // n * n steps.
+      if (array[j] === myResult)return true
+    }
+  }
+  // if not, return false
+  return false
+  }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
 
-/* 
-  Add your pseudocode here
-*/
+  /* 
+  Runtime:O(n^2): As the size of our array gets bigger, 
+    our runtime gets twice as less efficient.
+  Space complexity O(n)
+  */
 
-/*
-  Add written explanation of your solution here
-*/
+  /* 
+  has targetSum [22, 19, 4, 6, 30]
+  iterate through each number in the array
+  iterate throught the rest of the array
+  check if any number is our complement
+  if so, return true
+  if not, return false
+  */
+
+  /*
+    Check through every element and comparing every other element to it
+    thus ending up with a nested loop
+  */
+
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
